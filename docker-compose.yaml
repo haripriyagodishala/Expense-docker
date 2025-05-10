@@ -6,9 +6,9 @@ volumes:
 services:
   mysql:
     image: hari6244/mysql:v1
-    containerName: mysql # --name mysql
+    containerName: mysql #--name mysql
     volumes:
-    - mysql:/var/lib/mysql # -v mysql:/var/lib/mysql
+    - mysql:/var/lib/mysql #-v mysql:/var/lib/mysql
   backend:
     image: hari6244/backend:v1
     containerName: backend
