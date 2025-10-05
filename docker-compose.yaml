@@ -2,13 +2,13 @@ version: "3"
 networks:
   expense:
 volumes:
-  mysql: #docker volume create mysql
+  mysql-data: #docker volume create mysql
 services:
   mysql:
     image: hari6244/mysql:v1
-    container_name: mysql-container #--name mysql
+    container_name: mysql-container #--name mysql-container
     volumes:
-    - mysql:/var/lib/mysql #-v mysql:/var/lib/mysql
+    - mysql-data:/var/lib/mysql #-v mysql-data:/var/lib/mysql
   backend:
     image: hari6244/backend:v1
     container_name: backend-container
@@ -19,7 +19,6 @@ services:
     image: hari6244/frontend:v1
     container_name: frontend-container
     ports:
-    - 80:80
+    - 80:80 #host-port:container-port, It can be 8080:80 also. You can give any host port here.
     depends_on: 
     - backend
-
